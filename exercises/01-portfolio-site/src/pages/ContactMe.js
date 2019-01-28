@@ -6,6 +6,7 @@ export default class ContactMe extends Component{
       <div>
         <h1>Contact Me</h1>
         <h3>Email: blah@blah.com</h3>
+        <h3>Phone: 555-555-5555</h3>
       </div>
     )
   }
