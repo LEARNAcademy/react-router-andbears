@@ -1,26 +1,47 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+
+import AboutMe from './pages/AboutMe'
+import Home from './pages/Home'
+import Skills from './pages/Skills'
+import Projects from './pages/Projects'
+import ContactMe from './pages/ContactMe'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div className="App">
+          <nav>
+             <ul>
+               <li>
+                 <Link to="/">Home</Link>
+               </li>
+               <li>
+                 <Link to="/aboutme/">About Me</Link>
+               </li>
+               <li>
+                 <Link to="/skills/">Skills</Link>
+               </li>
+               <li>
+                 <Link to="/projects/">Projects</Link>
+               </li>
+               <li>
+                 <Link to="/contactme/">Contact Me</Link>
+               </li>
+             </ul>
+           </nav>
+           <Route path='/aboutme' component={AboutMe}/>
+           <Route path='/skills' component={Skills}/>
+           <Route path='/projects' component={Projects}/>
+           <Route path='/contactme' component={ContactMe}/>
+           <Route path='/' exact component={Home}/>
+        </div>
+      </Router>
     );
   }
 }
